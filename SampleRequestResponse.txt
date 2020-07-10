@@ -1,0 +1,195 @@
+POST API - saveOrder request
+http://localhost:8003/order
+body
+----
+{
+
+   "id":2,
+   "customername" :"Customer2",
+   "orderdate": "2019-03-29T14:45:15",
+   "shippingaddress":"Address2" ,
+   "orderitems":3 ,
+   "total" :2990,
+		"productDetails":[
+		  {"productcode":"1812",
+		  "productname":"product1",
+		  "quantity":"1"},
+		  {"productcode":"1122",
+		  "productname":"product2",
+		  "quantity":"2"}
+		]
+}
+
+Response
+--------
+{
+    "status": 200,
+    "message": "SUCCESS",
+    "orderid": 2,
+    "orders": null
+}
+
+GET APIs
+--------
+
+//All orders
+http://localhost:8003/order
+{
+    "status": 200,
+    "message": "SUCCESS",
+    "orderid": 0,
+    "orders": [
+        {
+            "id": 1,
+            "customername": "Customer1",
+            "orderdate": "2019-04-28T14:45:15.000+00:00",
+            "shippingaddress": "Address1",
+            "orderitems": 2,
+            "total": 2000,
+            "productDetails": [
+                {
+                    "orderid": 1,
+                    "productcode": "1882",
+                    "productname": "product1",
+                    "quantity": 1
+                },
+                {
+                    "orderid": 1,
+                    "productcode": "122",
+                    "productname": "product2",
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "customername": "Customer2",
+            "orderdate": "2019-03-29T14:45:15.000+00:00",
+            "shippingaddress": "Address2",
+            "orderitems": 3,
+            "total": 2990,
+            "productDetails": [
+                {
+                    "orderid": 2,
+                    "productcode": "1812",
+                    "productname": "product1",
+                    "quantity": 1
+                },
+                {
+                    "orderid": 2,
+                    "productcode": "1122",
+                    "productname": "product2",
+                    "quantity": 2
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "customername": "Customer1",
+            "orderdate": "2019-04-29T14:45:15.000+00:00",
+            "shippingaddress": "Address1",
+            "orderitems": 2,
+            "total": 2220,
+            "productDetails": [
+                {
+                    "orderid": 3,
+                    "productcode": "182",
+                    "productname": "product1",
+                    "quantity": 1
+                },
+                {
+                    "orderid": 3,
+                    "productcode": "1222",
+                    "productname": "product2",
+                    "quantity": 1
+                }
+            ]
+        }
+    ]
+}
+
+//Order details based on orderid
+//http://localhost:8003/order/1
+{
+    "status": 200,
+    "message": "SUCCESS",
+    "orderid": 0,
+    "orders": [
+        {
+            "id": 1,
+            "customername": "Customer1",
+            "orderdate": "2019-04-28T14:45:15.000+00:00",
+            "shippingaddress": "Address1",
+            "orderitems": 2,
+            "total": 2000,
+            "productDetails": [
+                {
+                    "orderid": 1,
+                    "productcode": "1882",
+                    "productname": "product1",
+                    "quantity": 1
+                },
+                {
+                    "orderid": 1,
+                    "productcode": "122",
+                    "productname": "product2",
+                    "quantity": 1
+                }
+            ]
+        }
+    ]
+}
+
+//order details based on customer name
+http://localhost:8003/order/customer?customername=Customer1
+
+{
+    "status": 200,
+    "message": "SUCCESS",
+    "orderid": 0,
+    "orders": [
+        {
+            "id": 1,
+            "customername": "Customer1",
+            "orderdate": "2019-04-28T14:45:15.000+00:00",
+            "shippingaddress": "Address1",
+            "orderitems": 2,
+            "total": 2000,
+            "productDetails": [
+                {
+                    "orderid": 1,
+                    "productcode": "1882",
+                    "productname": "product1",
+                    "quantity": 1
+                },
+                {
+                    "orderid": 1,
+                    "productcode": "122",
+                    "productname": "product2",
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "customername": "Customer1",
+            "orderdate": "2019-04-29T14:45:15.000+00:00",
+            "shippingaddress": "Address1",
+            "orderitems": 2,
+            "total": 2220,
+            "productDetails": [
+                {
+                    "orderid": 3,
+                    "productcode": "182",
+                    "productname": "product1",
+                    "quantity": 1
+                },
+                {
+                    "orderid": 3,
+                    "productcode": "1222",
+                    "productname": "product2",
+                    "quantity": 1
+                }
+            ]
+        }
+    ]
